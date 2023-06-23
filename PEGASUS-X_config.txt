@@ -1,0 +1,62 @@
+./govreport/main_rlpx.py
+Namespace(model_pt='model_weight_path', config='', 
+train_batch_size=1, test_batch_size=2, epochs=100, num_beams=8, report_freq=1, accumulate_step=16, mle_weight=0.1, rl_weight=1, 
+model_type='google/pegasus-x-base', warmup_steps=1000, seed=970903, max_lr=0.002, source_max_len=4096, gen_max_len=700, 
+no_repeat_ngram_size=2)
+
+PegasusXForConditionalGeneration(
+  (model): PegasusXModel(
+    (shared): Embedding(96103, 768)
+    (encoder): PegasusXEncoder(
+      (embed_tokens): Embedding(96103, 768)
+      (embed_global): Embedding(128, 768)
+      (embed_positions): PegasusXSinusoidalPositionalEmbedding()
+      (layers): ModuleList(
+        (0-11): 12 x PegasusXEncoderLayer(
+          (self_attn): PegasusXGlobalLocalAttention(
+            (k_proj): Linear(in_features=768, out_features=768, bias=False)
+            (v_proj): Linear(in_features=768, out_features=768, bias=False)
+            (q_proj): Linear(in_features=768, out_features=768, bias=False)
+            (out_proj): Linear(in_features=768, out_features=768, bias=False)
+          )
+          (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (global_self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (activation_fn): ReLU()
+          (fc1): Linear(in_features=768, out_features=3072, bias=True)
+          (fc2): Linear(in_features=3072, out_features=768, bias=True)
+          (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+      (layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+    )
+    (decoder): PegasusXDecoder(
+      (embed_tokens): Embedding(96103, 768)
+      (embed_positions): PegasusXSinusoidalPositionalEmbedding()
+      (layers): ModuleList(
+        (0-11): 12 x PegasusXDecoderLayer(
+          (self_attn): PegasusXAttention(
+            (k_proj): Linear(in_features=768, out_features=768, bias=False)
+            (v_proj): Linear(in_features=768, out_features=768, bias=False)
+            (q_proj): Linear(in_features=768, out_features=768, bias=False)
+            (out_proj): Linear(in_features=768, out_features=768, bias=False)
+          )
+          (activation_fn): ReLU()
+          (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (encoder_attn): PegasusXAttention(
+            (k_proj): Linear(in_features=768, out_features=768, bias=False)
+            (v_proj): Linear(in_features=768, out_features=768, bias=False)
+            (q_proj): Linear(in_features=768, out_features=768, bias=False)
+            (out_proj): Linear(in_features=768, out_features=768, bias=False)
+          )
+          (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (fc1): Linear(in_features=768, out_features=3072, bias=True)
+          (fc2): Linear(in_features=3072, out_features=768, bias=True)
+          (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+      (layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+    )
+  )
+  (lm_head): Linear(in_features=768, out_features=96103, bias=False)
+)
+

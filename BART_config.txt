@@ -1,0 +1,60 @@
+./govreport/main_rlbt.py
+Namespace(model_pt='model_weight_path', config='', 
+train_batch_size=1, test_batch_size=2, epochs=100, num_beams=8, report_freq=1, accumulate_step=16, mle_weight=0.1, rl_weight=1, 
+model_type='facebook/bart-large-cnn', warmup_steps=1000, seed=970903, max_lr=0.002, source_max_len=1024, gen_max_len=700, 
+no_repeat_ngram_size=2)
+
+BartForConditionalGeneration(
+  (model): BartModel(
+    (shared): Embedding(50264, 1024, padding_idx=1)
+    (encoder): BartEncoder(
+      (embed_tokens): Embedding(50264, 1024, padding_idx=1)
+      (embed_positions): BartLearnedPositionalEmbedding(1026, 1024)
+      (layers): ModuleList(
+        (0-11): 12 x BartEncoderLayer(
+          (self_attn): BartAttention(
+            (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          )
+          (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          (activation_fn): GELUActivation()
+          (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+          (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+          (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+      (layernorm_embedding): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    )
+    (decoder): BartDecoder(
+      (embed_tokens): Embedding(50264, 1024, padding_idx=1)
+      (embed_positions): BartLearnedPositionalEmbedding(1026, 1024)
+      (layers): ModuleList(
+        (0-11): 12 x BartDecoderLayer(
+          (self_attn): BartAttention(
+            (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          )
+          (activation_fn): GELUActivation()
+          (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          (encoder_attn): BartAttention(
+            (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          )
+          (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+          (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+          (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+      (layernorm_embedding): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    )
+  )
+  (lm_head): Linear(in_features=1024, out_features=50264, bias=False)
+)
+
